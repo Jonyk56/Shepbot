@@ -17,13 +17,19 @@ public class main extends ListenerAdapter {
 		System.out.println("Initialising ShepBot.");
 		try {
 			JDA jda = JDABuilder.createDefault(
-				//
-				"NzgxNTIyNzkxOTQ1ODYzMTY4.X7-30Q.tbl7Pji5vmNP_QF2N00Wtf7RmME"
-				).build();
+					//
+					"TOKEN_HERE").build();
+			jda.addEventListener(new dula());
 		} catch (LoginException ex) {
 			System.out.println(ex + ": Token is incorrect.");
 		}
 		System.out.println("ShepBot Reporting in.");
+	}
+}
+
+class dula extends ListenerAdapter {
+	public static void dula() {
+
 	}
 
 	@Override
@@ -33,7 +39,6 @@ public class main extends ListenerAdapter {
 		if (message.getChannel().getName().equals("ria")) {
 			message.addReaction("shep:359539314507382804").queue();
 		}
-		System.out.println(message.getContentRaw());
 		if (message.getContentRaw().toLowerCase().matches("moth") && !message.getAuthor().isBot()) {
 			message.getChannel().sendMessage("Moth!").queue();
 		}
